@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block title %} Diot-Siaci's Blog {% endblock %}
+{% load i18n %}
+
+{% block content %}
+    <div class="header">
+        <h1>{% trans 'header-title' %}</h1>
+    </div>
+
+    {% for article in articles %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ article.title }}</h5>
+            <h6 class="card-date">{{ article.created|timesince }}</h6>
+            <p class="card-content">{{ article.content }}</p>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

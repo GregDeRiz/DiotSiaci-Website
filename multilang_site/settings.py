@@ -133,7 +133,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 APPEND_SLASH = True
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "blog/static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "blog/static/")]
 LOCALE_PATHS = [os.path.join(BASE_DIR, "locale/")]
 
 # Default primary key field type

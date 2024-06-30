@@ -10,3 +10,7 @@ def index(request):
 def blog(request):
     articles = Article.objects.all()
     return render(request, 'blog.html', {'articles': articles})
+
+
+def career(request):
+    return render(request, 'career.html')

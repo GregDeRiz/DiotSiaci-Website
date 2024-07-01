@@ -25,10 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "False").lower() == "True"
+DEBUG = os.environ.get("DEBUG", "False").lower() == "False"
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
-
 
 
 # Application definition
@@ -134,7 +133,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 APPEND_SLASH = True
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static/")]
 LOCALE_PATHS = [os.path.join(BASE_DIR, "locale/")]
 
 # Default primary key field type

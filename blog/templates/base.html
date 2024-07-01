@@ -7,7 +7,7 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>{% block title %}{% endblock %}</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     </head>
     <body>
         <div class="navbar">
@@ -27,7 +27,7 @@
                     <ul class="dropdown-menu">
                         {% for language in languages %}
                         <li>
-                            <a class="dropdown-item" href="{% if language.code == CURRENT_LANGUAGE %}/{% else %}/{{ language.code }}/{% endif %}">
+                            <a class="dropdown-item" href="{% if language.code == CURRENT_LANGUAGE || language.code == 'fr' %}/{% else %}/{{ language.code }}/{% endif %}">
                                 {{ language.name_local }}
                             </a>
                         </li>

@@ -29,7 +29,7 @@
                     <ul class="dropdown-menu">
                         {% for language in languages %}
                         <li>
-                            <a class="dropdown-item" href="{% if language.code == 'fr' %}/{% else %}/{{ language.code }}/{% endif %}">
+                            <a class="dropdown-item" href="{% if language.code == CURRENT_LANGUAGE %}/{% else %}/{{ language.code }}/{% endif %}">
                                 {{ language.name_local }}
                             </a>
                         </li>

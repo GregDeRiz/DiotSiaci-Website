@@ -14,3 +14,7 @@ def blog(request):
 
 def career(request):
     return render(request, 'career.html')
+
+
+def article(request, article_number):
+    return render(request, f"blog/article_{article_number}.html")

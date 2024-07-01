@@ -18,20 +18,22 @@
                     <a class="nav-link" href="/career">Carrière</a>
                 </li>
 
-                <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                    <input name="next" type="hidden" value="{{ redirect_to }}" />
-                    <select name="language">
-                        {% get_current_language as LANGUAGE_CODE %}
-                        {% get_available_languages as LANGUAGES %}
-                        {% get_language_info_list for LANGUAGES as languages %}
+                <div class="dropdown">
+                    {% get_current_language as CURRENT_LANGUAGE %}
+                    {% get_available_languages as AVAILABLE_LANGUAGES %}
+                    {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+
+                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Changer la langue</button>
+                    <ul class="dropdown-menu">
                         {% for language in languages %}
-                            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
-                                {{ language.name_local }} ({{ language.code }})
-                            </option>
+                        <li>
+                            <a class="dropdown-item" href="{% if language.code == CURRENT_LANGUAGE %}/{% else %}/{{ language.code }}/{% endif %}">
+                                {{ language.name_local }}
+                            </a>
+                        </li>
                         {% endfor %}
-                    </select>
-                    <input type="submit" value="Go" />
-                </form>
+                    </ul>
+                </div>
             </ul>
         </div>
         {% block content %}{% endblock %}
